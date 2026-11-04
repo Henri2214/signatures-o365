@@ -1,0 +1,19 @@
+# Python / build
+__pycache__/
+*.pyc
+.venv/
+build/
+dist/
+*.spec
+
+# Donnees locales de l'outil (jetons, config, exports de boites)
+data/
+exports/
+
+# Vraies signatures : ne jamais les publier
+signatures/
+*.htm
+*.html
+*.rtf
+*_files/
+*_fichiers/

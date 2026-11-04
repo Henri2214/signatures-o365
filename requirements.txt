@@ -1,0 +1,4 @@
+msal[broker]>=1.31
+pymsalruntime>=0.14
+requests>=2.31
+pyinstaller>=6.0
