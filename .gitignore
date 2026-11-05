@@ -17,3 +17,6 @@ signatures/
 *.rtf
 *_files/
 *_fichiers/
+
+# Fichiers deposes par l'application Claude
+Claude outputs/
