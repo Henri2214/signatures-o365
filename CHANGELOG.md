@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.9
+- Nouveau module `sigcore.py` (sans dépendance) et tests pytest, lancés par `build.bat` et GitHub Actions.
+- Nettoyage du HTML Word/VML avant import (blocs VML en double, îlots XML, balises `o:`/`v:`/`w:`, liens locaux).
+- Alertes dès l'analyse : images introuvables, formats non affichés par OWA (EMF, WMF, SVG…), images lourdes, liens vers des fichiers locaux, noms invalides, doublons `.htm`/`.html`.
+- Version texte : les cellules de tableau sont séparées.
+- Bouton *Mes signatures Outlook* (dossier localisé lu dans le registre) et *Aperçu* du HTML envoyé.
+- Signatures par défaut (nouveau message, réponse/transfert), reprise possible depuis Outlook classique.
+- Sauvegarde automatique de la boîte avant envoi et bouton *Restaurer une sauvegarde*.
+- Lecture du format de la boîte aussi en simulation, quand on est connecté.
+- Nouvel essai automatique sur erreurs 429/5xx et réseau.
+- Cache de jeton chiffré par DPAPI ; l'ancien cache en clair est migré puis supprimé.
+- Journal enregistré dans `exports\`, barre d'activité, une seule opération à la fois.
+- Mode ligne de commande pour le déploiement (`--all`, `--apply`, `--outlook-defaults`, `--restore`…).
+- Alerte si les signatures itinérantes sont désactivées sur le poste ; prérequis documentés.
+- `requirements.txt` limité à l'exécution, `requirements-dev.txt` pour la construction et les tests.
+- Release automatique de l'exe (avec SHA-256) sur les tags `v*`.
+- Suppression du code mort (connexion OAuth par navigateur, aide sur l'application Entra).
+
 ## 1.8
 - `build.bat` utilise Python 3.12, recrée l'environnement à chaque construction et vérifie la présence de `pymsalruntime`.
 
