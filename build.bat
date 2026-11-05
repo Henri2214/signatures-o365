@@ -31,12 +31,19 @@ if exist .venv rmdir /s /q .venv
 set "VPY=%~dp0.venv\Scripts\python.exe"
 
 "%VPY%" -m pip install --upgrade pip
-"%VPY%" -m pip install -r requirements.txt || goto :err
+"%VPY%" -m pip install -r requirements-dev.txt || goto :err
 
 echo Verification du composant de connexion Windows...
 "%VPY%" -c "import pymsalruntime; print('pymsalruntime OK')"
 if errorlevel 1 (
     echo ERREUR : pymsalruntime ne s'installe pas avec ce Python.
+    goto :err
+)
+
+echo Tests automatiques...
+"%VPY%" -m pytest -q tests
+if errorlevel 1 (
+    echo ERREUR : des tests echouent, construction annulee.
     goto :err
 )
 
