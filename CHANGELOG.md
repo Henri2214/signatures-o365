@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.9 (en cours)
+- Nettoyage du HTML Word/VML et avertissements à l'analyse (images manquantes, formats non gérés).
+- Sauvegarde automatique des signatures cloud avant envoi, lecture du format avant simulation.
+- Signatures par défaut (nouveau message, réponse/transfert).
+- Chiffrement du cache de jeton, mode ligne de commande, journal enregistré dans exports\.
+- Tests unitaires et nettoyage du code mort.
+
 ## 1.8
 - `build.bat` utilise Python 3.12, recrée l'environnement à chaque construction et vérifie la présence de `pymsalruntime`.
 
