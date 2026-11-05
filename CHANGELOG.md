@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.9.1
+- `build.bat` construit dans un dossier temporaire : en cas d'échec, l'exe précédent reste intact.
+- `dist\` ne contient plus que le nouvel exe et son empreinte SHA-256 ; `dist\data` et `dist\exports` sont conservés.
+- Suppression de tous les fichiers temporaires après la construction (environnement, `build\`, `.spec`, caches Python et pytest).
+- Tests GitHub lancés une seule fois par modification.
+
 ## 1.9
 - Nouveau module `sigcore.py` (sans dépendance) et tests pytest, lancés par `build.bat` et GitHub Actions.
 - Nettoyage du HTML Word/VML avant import (blocs VML en double, îlots XML, balises `o:`/`v:`/`w:`, liens locaux).

@@ -32,7 +32,7 @@ from sigcore import (analyse, build_default_items, build_items, extract_signatur
                      scan_folder)
 
 APP_TITLE = "Signatures O365 - import dans la boite mail"
-APP_VERSION = "1.9"
+APP_VERSION = "1.9.1"
 BOX_ON, BOX_OFF = "☑", "☐"
 
 # Client public "Microsoft Office" (celui qu'utilise Outlook pour ce service).

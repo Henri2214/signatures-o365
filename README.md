@@ -1,6 +1,6 @@
 # Signatures O365
 
-![version](https://img.shields.io/badge/version-1.9-blue) ![Windows](https://img.shields.io/badge/Windows-10%2F11-0078D6) ![tests](https://github.com/Henri2214/signatures-o365/actions/workflows/tests.yml/badge.svg)
+![version](https://img.shields.io/badge/version-1.9.1-blue) ![Windows](https://img.shields.io/badge/Windows-10%2F11-0078D6) ![tests](https://github.com/Henri2214/signatures-o365/actions/workflows/tests.yml/badge.svg)
 
 Petit outil portable qui lit un dossier de signatures Outlook (`Nom.htm`, `Nom.txt`, `Nom_fichiers\`) et les crée directement dans la boîte Exchange Online, comme une signature créée à la main dans Outlook Web. Elles apparaissent ensuite dans OWA, le nouvel Outlook et Outlook Microsoft 365, sans les recréer à la main.
 
@@ -14,7 +14,11 @@ Les signatures doivent être **itinérantes** (stockées dans la boîte) :
 
 ## Construire l'exécutable
 
-Sur un poste Windows, lancer `build.bat`. Il installe Python 3.12 si besoin, crée un environnement propre, **lance les tests**, puis produit `dist\SignaturesO365.exe`, un fichier unique copiable sur une clé ou un SSD. L'exe crée à côté de lui :
+Sur un poste Windows, lancer `build.bat`. Il installe Python 3.12 si besoin, crée un environnement propre, **lance les tests**, puis produit `dist\SignaturesO365.exe`, un fichier unique copiable sur une clé ou un SSD, avec son empreinte `SignaturesO365.exe.sha256`.
+
+La construction se fait dans un dossier temporaire : si une étape échoue, l'exe précédent n'est pas touché. En cas de succès, `dist\` ne garde que le nouvel exe, son empreinte et les dossiers `data\` et `exports\`. Tous les fichiers temporaires (`.venv`, `build\`, `.spec`, caches) sont supprimés à la fin.
+
+L'exe crée à côté de lui :
 
 - `data\` : configuration et cache de connexion **chiffré** (DPAPI, lisible uniquement par le même utilisateur Windows sur le même PC) ;
 - `exports\` : sauvegardes de boîtes, simulations, aperçus et journal du jour (`journal_AAAAMMJJ.txt`).
